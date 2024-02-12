@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+
+    <style>
+        :root {
+            --primary: #6a65fe;
+            --bg: #0e1420;
+            --tab01: #7077A1;
+            --tab02: #424769;
+            --border: #2e323e;
+            --text-color: #fff;
+            --active: #F6B17A;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        html {
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            padding: 0;
+            margin: 0;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+
+        }
+
+        body {
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            padding: 0;
+            margin: 0;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            color: var(--text-color);
+            font-family: "Source Sans Pro", sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            background-color: var(--bg);
+        }
+
+        p,
+        ol,
+        ul,
+        li,
+        dl,
+        dt,
+        dd,
+        blockquote,
+        figure,
+        fieldset,
+        form,
+        legend,
+        textarea,
+        pre,
+        iframe,
+        hr,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            padding: 0;
+            margin: 0;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: Roboto, sans-serif;
+            line-height: 1.2;
+            word-wrap: break-word;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        h2 {
+            font-size: 32px;
+        }
+
+        body {
+            margin-top: 100px;
+            font-family: 'Trebuchet MS', serif;
+            line-height: 1.6
+        }
+
+        .container {
+            width: 90vw;
+            height: 670px;
+            margin: 0 auto;
+            /* background: var(--active); */
+        }
+
+        ul.tabs {
+            display: flex;
+            justify-content: space-between;
+            width: 400px;
+            margin-bottom: 20px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        ul.tabs li {
+            background: none;
+            display: inline-block;
+            width: 100px;
+            height: 40px;
+            line-height: 36px;
+            margin-right: 40px;
+            cursor: pointer;
+            border: 2px solid #fff;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        ul.tabs li:hover {
+            border: 2px solid var(--active);
+            color: var(--active);
+        }
+
+        ul.tabs li.current {
+            border: 2px solid var(--active);
+            color: var(--active);
+        }
+
+        .tab-content {
+            display: none;
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            border-radius: 20px;
+            background: #ededed;
+            /* transition: all 0.5s; */
+            opacity: 0;
+        }
+
+        .tab-content.current {
+            display: inherit;
+            opacity: 1;
+        }
+
+        .tab-content .box-wrap {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            width: 100%;
+
+        }
+
+        .tab-content .box-wrap .box {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+            text-align: center;
+            line-height: 300px;
+            border-radius: 20px;
+            background: var(--bg);
+        }
+        .tab-content .box-wrap .box img{
+            position: absolute;
+            width: 34px;
+            height: 34px;
+            border-radius: 17px;
+            background: #fff;
+        }
+        .tab-content .box-wrap .i-box img{
+            bottom: 10px;
+            right: 10px;
+        }
+        .tab-content .box-wrap .g-box button {
+            width: 34px;
+            height: 34px;
+            border: none;
+            background: none;
+        }
+        .tab-content .box-wrap .g-box button a{
+
+        }
+        .tab-content .box-wrap .g-box button a img{
+            top: 10px;
+            right: 10px;
+            transform: rotate(-45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <ul class="tabs">
+            <li class="tab-link current" data-tab="tab-1">전체</li>
+            <li class="tab-link" data-tab="tab-2">전시</li>
+            <li class="tab-link" data-tab="tab-3">백엔드</li>
+        </ul>
+
+        <div id="tab-1" class="tab-content current">
+            <div class="all-box box-wrap">
+                <div class="box0 i-box box">
+                    Intro
+                </div>
+                <div class="box1 g-box box">
+                    1
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+                <div class="box2 g-box box">
+                    2
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+                <div class="box3 g-box box">
+                    3
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+                <div class="box4 g-box box">
+                    4
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+                <div class="box5 g-box box">
+                    5
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+                <div class="box6 g-box box">
+                    6
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+                <div class="box7 g-box box">
+                    7
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="tab-2" class="tab-content">
+            <div class="gallery-box box-wrap">
+                <div class="box1 g-box box">
+                    1
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+                <div class="box2 g-box box">
+                    2
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+                <div class="box3 g-box box">
+                    3
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="tab-3" class="tab-content">
+            <dvi class="backend-box box-wrap">
+                <div class="box4 g-box box">
+                    4
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+                <div class="box5 g-box box">
+                    5
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+                <div class="box6 g-box box">
+                    6
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+                <div class="box7 g-box box">
+                    7
+                    <button>
+                        <a href="#">
+                            <img src="img/arrow-white.png" alt="arrow">
+                        </a>
+                    </button>
+                </div>
+            </dvi>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            $('ul.tabs li').click(function () {
+                var tab_id = $(this).attr('data-tab');
+                    $('ul.tabs li').removeClass('current');
+                    $('.tab-content').removeClass('current');
+
+                    $(this).addClass('current');
+                    $("#" + tab_id).addClass('current');
+
+
+            })
+
+        })
+    </script>
+</body>
+
+</html>
