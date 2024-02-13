@@ -107,9 +107,79 @@
             line-height: 1.6
         }
 
+        header {
+            position: fixed;
+            top: 0;
+            z-index: 999;
+            width: 100vw;
+            height: 100px;
+            /* background: var(--tab01); */
+        }
+
+        .header-up {
+            top: -100px;
+        }
+
+        header h1.logo {
+            position: relative;
+            height: 100px;
+            padding-top: 15px;
+            margin-left: 20px;
+            /* background: var(--active); */
+        }
+
+        header h1.logo a {
+            text-decoration: none;
+            display: block;
+            height: 80px;
+        }
+
+        header h1.logo a img {
+            width: 80px;
+            height: 80px;
+        }
+
+        header h1.logo a p {
+            display: inline-block;
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: var(--text-color);
+        }
+
+        main {
+            width: 100vw;
+            /* height: 100vh; */
+        }
+
+        #home {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: 0 50px;
+            background: var(--bg);
+            color: var(--text-color);
+        }
+
+        .main-text {
+            position: absolute;
+            top: 50%;
+            display: block;
+            transform: translateY(-50%);
+        }
+
+        .main-text h2 {
+            font-size: 72px;
+            margin-bottom: 50px;
+        }
+
+        .main-text p {
+            line-height: 50px;
+            font-size: 20px;
+        }
+
         .container {
-            width: 90vw;
-            height: 670px;
+            width: 90%;
+            height: 100vh;
             margin: 0 auto;
             /* background: var(--active); */
         }
@@ -150,7 +220,7 @@
         .tab-content {
             display: none;
             width: 100%;
-            height: 100%;
+            height: 670px;
             padding: 15px;
             border-radius: 20px;
             background: #ededed;
@@ -168,7 +238,6 @@
             justify-content: space-evenly;
             flex-wrap: wrap;
             width: 100%;
-
         }
 
         .tab-content .box-wrap .box {
@@ -181,183 +250,265 @@
             border-radius: 20px;
             background: var(--bg);
         }
-        .tab-content .box-wrap .box img{
+
+        .tab-content .box-wrap .box img {
             position: absolute;
             width: 34px;
             height: 34px;
             border-radius: 17px;
             background: #fff;
         }
-        .tab-content .box-wrap .i-box img{
+
+        .tab-content .box-wrap .i-box img {
             bottom: 10px;
             right: 10px;
         }
+
         .tab-content .box-wrap .g-box button {
+            opacity: 0;
             width: 34px;
             height: 34px;
             border: none;
+            transition: all 0.4s ease;
             background: none;
         }
-        .tab-content .box-wrap .g-box button a{
 
-        }
-        .tab-content .box-wrap .g-box button a img{
+        .tab-content .box-wrap .g-box button a {}
+
+        .tab-content .box-wrap .g-box button a img {
             top: 10px;
             right: 10px;
             transform: rotate(-45deg);
+        }
+
+        .tab-content .box-wrap .g-box:hover button {
+            opacity: 1;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-
-        <ul class="tabs">
-            <li class="tab-link current" data-tab="tab-1">전체</li>
-            <li class="tab-link" data-tab="tab-2">전시</li>
-            <li class="tab-link" data-tab="tab-3">백엔드</li>
-        </ul>
-
-        <div id="tab-1" class="tab-content current">
-            <div class="all-box box-wrap">
-                <div class="box0 i-box box">
-                    Intro
-                </div>
-                <div class="box1 g-box box">
-                    1
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
-                </div>
-                <div class="box2 g-box box">
-                    2
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
-                </div>
-                <div class="box3 g-box box">
-                    3
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
-                </div>
-                <div class="box4 g-box box">
-                    4
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
-                </div>
-                <div class="box5 g-box box">
-                    5
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
-                </div>
-                <div class="box6 g-box box">
-                    6
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
-                </div>
-                <div class="box7 g-box box">
-                    7
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
+    <header>
+        <h1 class="logo">
+            <a href="#">
+                <img src="img/free-icon-yelp-220225.png" alt="로고">
+                <p>임시로고</p>
+            </a>
+        </h1>
+    </header>
+    <main>
+        <section id="home">
+            <div class="main-text">
+                <h2>Title</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            </div>
+        </section>
+        <section class="container">
+            <ul class="tabs">
+                <li class="tab-link current" data-tab="tab-1">전체</li>
+                <li class="tab-link" data-tab="tab-2">전시</li>
+                <li class="tab-link" data-tab="tab-3">백엔드</li>
+            </ul>
+            <div id="tab-1" class="tab-content current">
+                <div class="all-box box-wrap">
+                    <div class="box0 i-box box">
+                        Intro
+                    </div>
+                    <div class="box1 g-box box">
+                        1
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
+                    <div class="box2 g-box box">
+                        2
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
+                    <div class="box3 g-box box">
+                        3
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
+                    <div class="box4 g-box box">
+                        4
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
+                    <div class="box5 g-box box">
+                        5
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
+                    <div class="box6 g-box box">
+                        6
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
+                    <div class="box7 g-box box">
+                        7
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="tab-2" class="tab-content">
-            <div class="gallery-box box-wrap">
-                <div class="box1 g-box box">
-                    1
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
-                </div>
-                <div class="box2 g-box box">
-                    2
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
-                </div>
-                <div class="box3 g-box box">
-                    3
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
+            <div id="tab-2" class="tab-content">
+                <div class="gallery-box box-wrap">
+                    <div class="box1 g-box box">
+                        1
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
+                    <div class="box2 g-box box">
+                        2
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
+                    <div class="box3 g-box box">
+                        3
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="tab-3" class="tab-content">
-            <dvi class="backend-box box-wrap">
-                <div class="box4 g-box box">
-                    4
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
-                </div>
-                <div class="box5 g-box box">
-                    5
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
-                </div>
-                <div class="box6 g-box box">
-                    6
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
-                </div>
-                <div class="box7 g-box box">
-                    7
-                    <button>
-                        <a href="#">
-                            <img src="img/arrow-white.png" alt="arrow">
-                        </a>
-                    </button>
-                </div>
-            </dvi>
-        </div>
-
-    </div>
+            <div id="tab-3" class="tab-content">
+                <dvi class="backend-box box-wrap">
+                    <div class="box4 g-box box">
+                        4
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
+                    <div class="box5 g-box box">
+                        5
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
+                    <div class="box6 g-box box">
+                        6
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
+                    <div class="box7 g-box box">
+                        7
+                        <button>
+                            <a href="#">
+                                <img src="img/arrow-white.png" alt="arrow">
+                            </a>
+                        </button>
+                    </div>
+                </dvi>
+            </div>
+        </section>
+    </main>
 
     <script>
+        // var didScroll;
+        // var lastScrollTop = 0;
+        // var delta = 5; // 동작의 구현이 시작되는 위치
+        // var navbarHeight = $('header').outerHeight(); // 영향을 받을 요소를 선택
+
+        // // 스크롤시에 사용자가 스크롤했다는 것을 알림
+        // $(window).scroll(function (event) {
+        //     didScroll = true;
+        // });
+
+        // // hasScrolled()를 실행하고 didScroll 상태를 재설정
+        // setInterval(function () {
+        //     if (didScroll) {
+        //         hasScrolled();
+        //         didScroll = false;
+        //     }
+        // }, 250);
+
+        // // 동작을 구현
+        // function hasScrolled() {
+        //     // 접근하기 쉽게 현재 스크롤의 위치를 저장한다.
+        //     var st = $(this).scrollTop();
+
+        //     // 설정한 delta 값보다 더 스크롤되었는지를 확인한다.
+        //     if (Math.abs(lastScrollTop - st) <= delta) {
+        //         return;
+        //     }
+
+        //     // 헤더의 높이보다 더 스크롤되었는지 확인하고 스크롤의 방향이 위인지 아래인지를 확인한다.
+        //     if (st > lastScrollTop && st > navbarHeight) {
+        //         // Scroll Down
+        //         $('header').removeClass('nav-down').addClass('header-up');
+        //     } else {
+        //         // Scroll Up
+        //         if (st + $(window).height() < $(document).height()) {
+        //             $('header').removeClass('header-up').addClass('nav-down');
+        //         }
+        //     }
+
+        //     // lastScrollTop 에 현재 스크롤위치를 지정한다.
+        //     lastScrollTop = st;
+        // }
+
+        $(function () {
+            let lastScrollTop = 0;
+            const delta = 15;
+
+            $(window).scroll(function (event) {
+                const st = $(this).scrollTop();
+                if (Math.abs(lastScrollTop - st) <= delta) return;
+                if ((st > lastScrollTop) && (lastScrollTop > 0)) {
+                    $('header').addClass('header-up');
+                } else {
+                    $('header').removeClass('header-up');
+                };
+                lastScrollTop = st;
+            });
+        });
+
         $(document).ready(function () {
 
             $('ul.tabs li').click(function () {
                 var tab_id = $(this).attr('data-tab');
-                    $('ul.tabs li').removeClass('current');
-                    $('.tab-content').removeClass('current');
+                $('ul.tabs li').removeClass('current');
+                $('.tab-content').removeClass('current');
 
-                    $(this).addClass('current');
-                    $("#" + tab_id).addClass('current');
+                $(this).addClass('current');
+                $("#" + tab_id).addClass('current');
 
 
             })
